@@ -151,7 +151,7 @@ pre code {
   border-radius: 50px;
   cursor: pointer;
   transition: opacity 0.3s;
-  opacity: 0.75;
+  opacity: 0.9;
 }
 
 .button:hover {
