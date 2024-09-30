@@ -84,13 +84,13 @@ const Meow = () => {
       </Box>
       <Box p={8} textAlign="center" position="sticky" bottom={20}>
         <Button className="button" onClick={shareContent}>
-          <Link2 size={24} />
+          <Link2 size={28} />
         </Button>
         <Button className="button" onClick={cleanContent}>
-          <FilePlus size={24} />
+          <FilePlus size={28} />
         </Button>
         <Button className="button" onClick={openInfo}>
-          <Info size={24} />
+          <Info size={28} />
         </Button>
       </Box>
     </main>

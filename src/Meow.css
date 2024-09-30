@@ -3,6 +3,7 @@
 :root {
   --black: #263238;
   --grey: #bdbdbd;
+  --bluegrey: #cfd8dc;
   --lightgrey: #eceff1;
   --lightblue: #3E95BA;
   --pink: #ad1457;
@@ -143,17 +144,19 @@ pre code {
 }
 
 .button {
-  background: var(--lightgrey);
-  color: var(--lightblue);
+  background: white;
+  border: 1px solid var(--bluegrey) !important;
+  color: var(--bluegrey);
   margin: 0 15px;
-  padding: 18px;
   border: 0;
   border-radius: 50px;
   cursor: pointer;
-  transition: opacity 0.3s;
-  opacity: 0.9;
+  transition: all 0.3s;
+  width: 60px;
+  height: 60px;
 }
 
 .button:hover {
-  opacity: 0.5;
+  color: var(--lightblue);
+  border: 1px solid var(--lightblue) !important;
 }
