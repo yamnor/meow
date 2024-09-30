@@ -156,7 +156,9 @@ pre code {
   height: 60px;
 }
 
-.button:hover {
-  color: var(--lightblue);
-  border: 1px solid var(--lightblue) !important;
+@media (hover: hover) {
+  .button:hover {
+    color: var(--lightblue);
+    border: 1px solid var(--lightblue) !important;
+  }
 }
