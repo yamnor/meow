@@ -5,7 +5,6 @@ import Placeholder from '@tiptap/extension-placeholder'
 import Link from '@tiptap/extension-link'
 import { Markdown } from 'tiptap-markdown';
 import { Link2, FilePlus, Info } from 'lucide-react'
-import { Button, Box } from "@kuma-ui/core"
 import LZString from 'lz-string'
 
 const encodeContent = (content) => {
@@ -77,14 +76,14 @@ const App = () => {
 
   return (
     <main>
-      <Box p={8} mb={20}>
+      <div className='buttonContainer'>
+        <button onClick={cleanContent}><FilePlus size={28} /></button>
+        <button onClick={shareContent}><Link2 size={28} /></button>
+        <button onClick={setInfoText}><Info size={28} /></button>
+      </div>
+      <div className='editorArea'>
         <Editor content={content} setContent={setContent} />
-      </Box>
-      <Box p={8} textAlign="center" position="sticky" bottom={20}>
-        <Button className="button" onClick={shareContent}><Link2 size={28} /></Button>
-        <Button className="button" onClick={cleanContent}><FilePlus size={28} /></Button>
-        <Button className="button" onClick={setInfoText}><Info size={28} /></Button>
-      </Box>
+      </div>
     </main>
   )
 }
