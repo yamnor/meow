@@ -13,6 +13,8 @@ import TaskList from '@tiptap/extension-task-list'
 import Highlight from '@tiptap/extension-highlight'
 import Subscript from '@tiptap/extension-subscript'
 import Superscript from '@tiptap/extension-superscript'
+import { Mathematics } from '@tiptap-pro/extension-mathematics'
+import 'katex/dist/katex.min.css'
 import { Markdown } from 'tiptap-markdown';
 import { Link2, Eye, Code, Info, Cat } from 'lucide-react'
 import LZString from 'lz-string'
@@ -55,6 +57,7 @@ const Editor = ({ content, setContent }) => {
       Highlight,
       Superscript,
       Subscript,
+      Mathematics,
       Markdown,
       Link.configure({
         autoLink: true,
