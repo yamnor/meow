@@ -32,7 +32,7 @@ body {
 main {
   margin: 0 auto;
   width: 800px;
-  max-width: 98dvw;
+  max-width: 96dvw;
 }
 
 /* buttons */
@@ -74,7 +74,7 @@ textarea {
   padding: 10px;
   margin-top: 70px;
   width: 100%;
-  height: calc(100dvh - 90px);
+  height: calc(100dvh - 85px);
   color: var(--black);
   caret-color: var(--lightblue);
   background-color: white;
