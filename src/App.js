@@ -4,6 +4,10 @@ import StarterKit from '@tiptap/starter-kit'
 import Placeholder from '@tiptap/extension-placeholder'
 import Link from '@tiptap/extension-link'
 import Image from '@tiptap/extension-image'
+import Table from '@tiptap/extension-table'
+import TableCell from '@tiptap/extension-table-cell'
+import TableHeader from '@tiptap/extension-table-header'
+import TableRow from '@tiptap/extension-table-row'
 import { Markdown } from 'tiptap-markdown';
 import { Link2, Eye, Code, Info, Cat } from 'lucide-react'
 import LZString from 'lz-string'
@@ -33,6 +37,12 @@ const Editor = ({ content, setContent }) => {
     extensions: [
       StarterKit,
       Image,
+      Table.configure({
+        resizable: true,
+      }),
+      TableRow,
+      TableHeader,
+      TableCell,
       Markdown,
       Link.configure({
         autoLink: true,
