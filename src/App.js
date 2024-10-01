@@ -8,8 +8,6 @@ import { Link2, FilePlus, Info } from 'lucide-react'
 import { Button, Box } from "@kuma-ui/core"
 import LZString from 'lz-string'
 
-import './Meow.css';
-
 const encodeContent = (content) => {
   const encodedContent = LZString.compressToEncodedURIComponent(content)
   return encodedContent
@@ -54,7 +52,7 @@ const Editor = ({ content, setContent }) => {
   );
 }
 
-const Meow = () => {
+const App = () => {
   const encodedContent = window.location.hash.slice(1)
   const [content, setContent] = useState(decodeContent(encodedContent))
 
@@ -91,4 +89,4 @@ const Meow = () => {
   )
 }
 
-export default Meow
+export default App
