@@ -3,6 +3,7 @@ import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Placeholder from '@tiptap/extension-placeholder'
 import Link from '@tiptap/extension-link'
+import Image from '@tiptap/extension-image'
 import { Markdown } from 'tiptap-markdown';
 import { Link2, Eye, Code, Info, Cat } from 'lucide-react'
 import LZString from 'lz-string'
@@ -31,6 +32,7 @@ const Editor = ({ content, setContent }) => {
   const editor = useEditor({
     extensions: [
       StarterKit,
+      Image,
       Markdown,
       Link.configure({
         autoLink: true,
