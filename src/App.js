@@ -8,6 +8,8 @@ import Table from '@tiptap/extension-table'
 import TableCell from '@tiptap/extension-table-cell'
 import TableHeader from '@tiptap/extension-table-header'
 import TableRow from '@tiptap/extension-table-row'
+import TaskItem from '@tiptap/extension-task-item'
+import TaskList from '@tiptap/extension-task-list'
 import { Markdown } from 'tiptap-markdown';
 import { Link2, Eye, Code, Info, Cat } from 'lucide-react'
 import LZString from 'lz-string'
@@ -43,6 +45,10 @@ const Editor = ({ content, setContent }) => {
       TableRow,
       TableHeader,
       TableCell,
+      TaskList,
+      TaskItem.configure({
+        nested: true,
+      }),
       Markdown,
       Link.configure({
         autoLink: true,
