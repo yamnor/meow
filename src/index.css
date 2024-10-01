@@ -1,15 +1,11 @@
-@charset "UTF-8";
-
 :root {
   --black: #263238;
   --grey: #bdbdbd;
-  --bluegrey: #cfd8dc;
-  --lightgrey: #eceff1;
+  --lightgrey: #f5f5f5;
   --lightblue: #3E95BA;
   --pink: #ad1457;
-  --font-family-sans: "Noto Sans JP", system-ui, sans-serif;
-  --font-family-mono: "Noto Sans Mono", monospace;
-  --width-content: 800px;
+  --font-sans: "Noto Sans JP", system-ui, sans-serif;
+  --font-mono: "Noto Sans Mono", monospace;
 }
 
 *, *:before, *:after {
@@ -17,24 +13,26 @@
   padding: 0;
 }
 
+*:focus {
+  outline: none;
+}
+
 html {
-  font-family: var(--font-family-sans);
+  font-family: var(--font-sans);
   font-size: 16px;
   -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   margin: 0;
   padding: 5px;
-  color: var(--black);
-  line-height: 1.5;
 }
 
 main {
   margin: 0 auto;
   width: 800px;
-  max-width: 90dvw;
-  padding: 0;
+  max-width: 98dvw;
 }
 
 /* buttons */
@@ -45,9 +43,15 @@ button {
   height: 50px;
   border: none;
   border-radius: 50px;
-  color: grey;
-  background-color: #f0f0f0;
+  color: var(--grey);
+  background-color: var(--lightgrey);
   cursor: pointer;
+}
+
+@media (hover: hover) {
+  button:hover {
+    color: var(--black);
+  }
 }
 
 .buttonContainer {
@@ -59,21 +63,29 @@ button {
   text-align: center;
 }
 
-@media (hover: hover) {
-  .button:hover {
-    color: var(--lightblue);
-  }
+/* text area */
+
+textarea {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.5;
+  border: 1px dashed var(--grey);
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 70px;
+  width: 100%;
+  height: calc(100dvh - 90px);
+  color: var(--black);
+  caret-color: var(--lightblue);
+  background-color: white;
 }
 
-/* editor area */
+/* tiptap */
 
-.editorArea {
-  padding: 8;
-  margin: 70px 0 auto;
-}
-
-.ProseMirror:focus {
-  outline: none;
+.tiptap {
+  margin-top: 70px;
+  line-height: 1.5;
+  color: var(--black);
   caret-color: var(--lightblue);
 }
 
@@ -152,7 +164,7 @@ hr {
 code {
   background-color: var(--lightgrey);
   border-radius: 3px;
-  font-family: var(--font-family-mono) !important;
+  font-family: var(--font-mono) !important;
   font-size: 0.9rem;
   overflow-wrap: break-word !important;
   padding-inline: 0.3em;
