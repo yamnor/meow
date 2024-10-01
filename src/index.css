@@ -54,6 +54,7 @@ button {
   z-index: 100;
   position: fixed;
   top: 10px;
+  left: 0;
   width: 100%;
   text-align: center;
 }
@@ -68,7 +69,7 @@ button {
 
 .editorArea {
   padding: 8;
-  margin: 0 auto;
+  margin: 70px 0 auto;
 }
 
 .ProseMirror:focus {
