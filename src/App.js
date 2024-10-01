@@ -18,6 +18,8 @@ import 'katex/dist/katex.min.css'
 import { Markdown } from 'tiptap-markdown';
 import { Link2, Eye, Code, Info, Cat } from 'lucide-react'
 import LZString from 'lz-string'
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; // optional
 
 const encodeContent = (content) => {
   const encodedContent = LZString.compressToEncodedURIComponent(content)
@@ -120,15 +122,21 @@ const App = () => {
   return (
     <main>
       <div className='buttonContainer'>
-        <button onClick={() => setMode(mode === 'view' ? 'code' : 'view')}>
-          {mode === 'view' ? <Eye size={28} /> : <Code size={28} />}
-        </button>
-        <button onClick={handleLinkButton}>
-          {isCopied ? <Cat size={28} /> : <Link2 size={28} />}
-        </button>
-        <button onClick={handleInfoButton}>
-          <Info size={28} />
-        </button>
+        <Tippy content="Switch mode">
+          <button onClick={() => setMode(mode === 'view' ? 'code' : 'view')}>
+            {mode === 'view' ? <Eye size={28} /> : <Code size={28} />}
+          </button>
+        </Tippy>
+        <Tippy content="Copy link">
+          <button onClick={handleLinkButton}>
+            {isCopied ? <Cat size={28} /> : <Link2 size={28} />}
+          </button>
+        </Tippy>
+        <Tippy content="About">
+          <button onClick={handleInfoButton}>
+            <Info size={28} />
+          </button>
+        </Tippy>
       </div>
       {mode === 'view' ? (
         <Editor content={content} setContent={setContent} />
