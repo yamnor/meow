@@ -31,7 +31,7 @@ const decodeContent = (encodedContent) => {
   return decodedContent || ''
 }
 
-function TextArea({ content, setContent }) {
+const TextArea = ({ content, setContent }) => {
   return (
     <textarea
       value={content}
@@ -102,6 +102,9 @@ const App = () => {
       if (decodedContent) {
         setContent(decodedContent);
       }
+      setMode('view');
+    } else {
+      setMode('code');
     }
   }, []);
 
