@@ -59,7 +59,7 @@ button {
   position: fixed;
   top: 10px;
   left: 0;
-  width: 100%;
+  width: 100dvw;
   text-align: center;
 }
 
@@ -70,8 +70,8 @@ textarea {
   font-size: 15px;
   line-height: 1.5;
   border: 1px dashed var(--grey);
-  border-radius: 8px;
   padding: 10px;
+  position: sticky;
   margin-top: 70px;
   width: 100%;
   height: calc(100dvh - 85px);

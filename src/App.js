@@ -19,7 +19,7 @@ import { Markdown } from 'tiptap-markdown';
 import { Link2, Eye, Code, Info, Cat } from 'lucide-react'
 import LZString from 'lz-string'
 import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css'; // optional
+import 'tippy.js/dist/tippy.css';
 
 const encodeContent = (content) => {
   const encodedContent = LZString.compressToEncodedURIComponent(content)
@@ -115,28 +115,36 @@ const App = () => {
   }
 
   const handleInfoButton = () => {
-    const content = "MQAgsgpg9g7ii8G4Lj2BQzigOoAsCGAXEASwGdxoYB+VAKmsllqNJwDsQIdiBPAWjyh4BXYhBD8oAGxAATCMUIBzFhGkgAZlABOIYrk2EWC9VoC2+PCrEQAHngB0IAJpRBIAMasxXAA6iDYrFEVQn5tVlU3CUI3AGsA0QADAGUACQBBACUAUQSQACNBPH42fhAFCGVNfFEcECiWGIcAFSwSOoM4tygWPBwDUggANwhNLjxWwxAuFwByYZAYfSKKgBp2Fhw8+qNp11LdHE0-AhgQrBcCI4kuAyNukFqRTWHNBwBJAm9NKEHCWWYdIQTN4JDUWKoRG5BEcFjguGIoDo9KJdtoLLY7KhnK4PGw3IFYg9Bn0JJtQexpCEtEitHgoXhSABtQJHAC6AAosEVvMQAFwAen5eEI3l63jsskG-OkUDcxH5wVC-K6Rx4XRYbggovlMQgXDyUEO0h4ulp9OIwC+KggagMKh4uv1hs0xtNmjphWIAEo1uMXAosCAWFACDgJFINJozEVbiAoKLCN1mDDiIJvN5aSpMWhQPQ4PBABA7azzCCLIAAioIcITAHwbgDDdmh0ciMGCcIgsYjeQhHVR5eHjUQwCB5B7pkCM2iV6sxWgcrl4HkC-l5CC9OwARyrsTs3hw5R97iO1V78MZAHEoFBVFlg4IAyAADIPgDCc+5fMFCkvslvAbswi9BxsEIclJy3GIZmIRgcHTb5q0DKA1CRQ5Y3VCwehAX5anqGJSE7Q5dVUAciFkWoVwmVRaDzWhfUCQ8QmiMMZEINQ1BGCpNSYAJ8BAKjm2oEBhDkB4QAwRwkjeMSzxAdlqGwHjsRAJIIFEN5SHkghFLPVdqC9CkqU0NYwwkWBY0jEATC0PwekEBjhjWI8JD4IEgkpYVDGzFJYCGEY1j4hgBNwPCoBMUQohMEJ8ETDt3BC3cewRXjqCnWJaEAFAIQhkKA5BYGYCFTdNaXUDg8GhYSol1IgzHKZjO1JLg1jMGJY0y2pLJTPAjxMeoVF9Gw8B4DQoREIjLwkbN0FE85DxKyw8yoZB-JgFs2zcI8LBPccuBwExg00N8Fw-fltt2rQ7FCg9anxCAIuIAga0ARd3AFgCeBABpdnRfDcQgw0IAAvFq2Es0EoVJbR5BMQRSWFe4ol+SZ-AAKRgzxAB4NwB73ZRwBX3feJDdhAXB5lYeFNzkaGO1o-0uWINZqS6ExQp6aniogCMjlEUpGTQ6sCFCg7F0FUFlk0PJu2kOwumOna9r0wBIckAeD+420W1wQs0R7kZAANPmjuscWQsl07NEAoA"
+    const content = "MQAgsgpg9g7ii8G4Lj2BQzigOoAsCGAXEASwGdxoYB+VAKmsllqNJwDsQIdiBPAWjyh4BXYhBD8oAGxAATCMUIBzFhGkgAZlABOIYrk2EWC9VoC2+PCrEQAHngB0IAJpRBIAMasxXAA6iDYrFEVQn5tVlU3CUI3AGsA0QADABkASQA5AGkEkAAjQTx+Nn4QBQhlTXxRHBAolhiHABUsEhqDOLcoFjwcA1IIADcITS48ZsMQLhcAckGQGH0CsoAadhYcHNqjSddi3RxNPwIYEKwXAgOJLgMjTpBqkU1BzQcUgm9NKH7CWWYdQhNvBIqixVCI3IIDnMcFwxFAdHpRNttBZbHZUM5XB42G5ArE7v0ehJ1kD2NIQlp4Vo8OC8KQANqBA4AXQAFFgCt5iAAuAD0PLwhG83W8dlk-R50igbmIPOCoR5HQOPA6LDcECFMpiEC4OSg+2kPF0VJpxGA7xUEDUBhUPC1Or1mgNRs01PyxAAlCtRi4FFgQCwoAQcBIpBpNGYCtcQFAhYROsxIcRBN5vFSVGi0KB6HB4IAIHZW2YQ+ZAAEVBDg8YA+DcAYbs0OjkRgwThEFjEbyEA6qHIw0aiGAQHJ3FMgOm0MsVmK0VnsvCc3k8nIQbp2ACO5didm8OFKnvcB0qXZhdIA4lAoKoAKIBwS+kBJJIAYWnHO5fIUZ9k199dmE7oc2EIEkx3XGIpmIRgcBTD4Kz9KA1HhfYoxVCwuhAL5qlqGJSDbfYtVUXsiFkapFzGVRaGzWgvUCPcQmiYMZEINQ1CGMo1SYAJ8BAciG2oEBhDkO4QAwRwAGUUmE48QBZahsE4jEQBEiBRBSUhZIIeTjyXah3VJclNBWYMJFgKMwxAEwtD8LpBFowYVn3CQ+H+IIyQFQwMwACVgAYhhWbiGF43BsKgExRCiEwQnwONW3cYKt07WEuOocdYloQAUAhCGQoDkFgpgIJMUypdQODwCEBKiLUiDMUoGLbIkuBWMwYijDLqnMxM8H3ExahUL0bDwHgNHBER8LPCQM3QITTj3YrLGzKhkD8mBG2bNx9wsQ8Ry4HATADTRn1nV8eS2natDsELd2qHEIHC4gCErQBF3cAWAJ4EAGl2dF8NxCGDQgAC9mrYcygXBIltHkExBCJAVbiiL5xn8AApSDPEAHg3AHvd5HAFfdl54O2EBcFmVgYTXOQodbKifXZYgVgpDoTBCroqaKiBQwOURijpZCKwIEL9rnPkgUWTQcg7aQ7A6I7tt2nTAEhyQB4P+jbQrRBMzRFuOkAA1ecO6wxeCiWTs0P8gA"
     setContent(decodeContent(content))
   }
 
   return (
     <main>
       <div className='buttonContainer'>
-        <Tippy content="Switch mode">
-          <button onClick={() => setMode(mode === 'view' ? 'code' : 'view')}>
-            {mode === 'view' ? <Eye size={28} /> : <Code size={28} />}
+        {mode === 'view' ? (
+          <button onClick={() => setMode('code')}>
+            <Code size={28} />
           </button>
-        </Tippy>
-        <Tippy content="Copy link">
+        ) : (
+          <button onClick={() => setMode('view')}>
+            <Eye size={28} />
+          </button>
+        )}
+        {isCopied ? (
+          <Tippy content="Copied!">
+            <button>
+              <Cat size={28} />
+            </button>
+          </Tippy>
+        ) : (
           <button onClick={handleLinkButton}>
-            {isCopied ? <Cat size={28} /> : <Link2 size={28} />}
+            <Link2 size={28} />
           </button>
-        </Tippy>
-        <Tippy content="About">
-          <button onClick={handleInfoButton}>
-            <Info size={28} />
-          </button>
-        </Tippy>
+        )}
+        <button onClick={handleInfoButton}>
+          <Info size={28} />
+        </button>
       </div>
       {mode === 'view' ? (
         <Editor content={content} setContent={setContent} />
