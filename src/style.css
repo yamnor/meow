@@ -122,8 +122,8 @@ hr {
   --h3-font-size: 1.125rem;
   --h4-font-size: 1.0rem;
 
-  --h1-height: 2rem;
-  --h2-height: 1.75rem;
+  --h1-height: 1.25rem;
+  --h2-height: 1.5rem;
   --h3-height: 1.5rem;
   --h4-height: 1.25rem;
 
@@ -142,7 +142,7 @@ hr {
   --h4-weight: normal;
 
   --h1-margin-top: 0rem;
-  --h2-margin-top: 4rem;
+  --h2-margin-top: 3rem;
   --h3-margin-top: 3rem;
   --h4-margin-top: 2rem;
 
