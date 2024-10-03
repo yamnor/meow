@@ -16,7 +16,7 @@ import Superscript from '@tiptap/extension-superscript'
 import { Mathematics } from '@tiptap-pro/extension-mathematics'
 import 'katex/dist/katex.min.css'
 import { Markdown } from 'tiptap-markdown';
-import { Link2, Eye, Code, Info, Cat, Clipboard, ClipboardCopy } from 'lucide-react'
+import { Link2, Eye, Code, Info, Cat } from 'lucide-react'
 import LZString from 'lz-string'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -162,21 +162,6 @@ const App = () => {
         <div className="article">
           <section className="content">
             <Editor content={content} setContent={setContent} />
-          </section>
-          <section className="share-block">
-            <a href={`https://twitter.com/intent/tweet?url=${generateLink()}`} rel="noreferrer " target="_blank">
-              <Tippy content="share">
-                <svg><use href="/icons.svg#twitter"/></svg>
-              </Tippy>
-            </a>
-            <Tippy content='copy code'>
-              <button onClick={copyMarkdown}>
-                {isCopied ? <ClipboardCopy /> : <Clipboard /> }
-              </button>
-            </Tippy>
-          </section>
-          <section id="copyright">
-            Powerd by <a href="https://meow.yamnor.me/" target="_blank" rel="noreferrer">Meow</a>
           </section>
         </div>
       ) : (
