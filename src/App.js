@@ -16,7 +16,7 @@ import Superscript from '@tiptap/extension-superscript'
 import { Mathematics } from '@tiptap-pro/extension-mathematics'
 import 'katex/dist/katex.min.css'
 import { Markdown } from 'tiptap-markdown';
-import { Link2, Eye, Code, Info, Cat } from 'lucide-react'
+import { Link2, Eye, Code, Info, Cat, Clipboard, ClipboardCopy } from 'lucide-react'
 import LZString from 'lz-string'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -94,9 +94,11 @@ const App = () => {
   const [mode, setMode] = useState('view');
   const [content, setContent] = useState('');
   const [isCopied, setIsCopied] = useState(false);
+  const hash = window.location.hash.slice(1);
+  const sample = "MQAgsgpg9g7ii8G4Lj2BQzigOoAsCGAXEASwGdxoYB+VAWhACo7JYGjScQYIAjEHABz4gAJhGKEA5gDsIQkHiggAjgFdCAYwDWAGwCeIYrgBOEEADMohgLb48MuRAAeeAHTJaAUUm3DIa4Y1CsJL2TkTBeFgmAAYAwgDyACLuUb5QIgA0cpHBalrqGlnRAGoAku4YKVzKePLhCkIkfFo4ehEm5lY2drZOrrQAmlDKIGo4wTKEBGOyHdYEPQQQAG4QwYThkSBRpeUplmkQriAgtDGRmrxLOITNXFomE-I+BhZ4atWkANqRxgC6ABRYGp8YgALgA9OC8IQ+Hh+M4REtwYE1MRwY8LOC1BYINRsZI1BBYWiNBAdFwoDhDEJqC9DG8PsA+MYRKZ1jJqKTyZTqbSsK93nhiABKTIRIbiLAgSRQKZaLRmCxzaGScQgKCwwhQSRsYz6ZQCV4yPogGJ5C5tLYAGRKADkANKVaq1OQKcSrCCGfAmdh5SQFfFw9brNXLT06CIhkA6IYAchWHEMk1skhNAGVVrJLe7pF7bLI-QV5Oq2oZSMQFG09KNgktCBA4DHlD5maJVnDodqOJN+dUQMZdFGu+xiJ6VoZXGhQEw4PBABA7mRnCAXIAAisocBdAHwbgDDd1AMGcsGA4UjrYh8QgskBcVqbTg8fiCT4MdebjQMAFAvAgiHgrgQOFnBUN9nD4HB3VFEZjG9WQbxAT4AHEoDSEBPAlKUrStGJP2BMFIXEZCRBlZRJWcZQRWcEBsBuEwXw3TRY2IFhH0MSk1ClKBTH0Iwo0DdsQDrX11g0cswP8bpNkIER2H-LB1lkA9yAYMVNjUJNoVGBUGlMUxPVWQlWCyfB6EYJS6BAcjRF4Kj+jTEoMH6BCQH+OhsGMwZhgzEwSlINyCA8kAEIAuhhRADFDEyHB5VgKMOlSPV1jwVRoRWTJoK0ahoUsB4GhVcRJwACVgMMIpMw9zNwcsoGykA8ksSZ8C1HURmqsTugUOi3wYQAUAkmYQoFESRYwIYgDT4V4zAgfBmysvJSSIax3WERpmh0TJrA0KM+vYfY9WIPBoMsP0ZDFRw8Gocx3lHLNkK0Sd0Co-koKm-MyFgKhkEU5hzOPUg1Jeuw4M+HQcEsGVDBw788PBEGwYsZxssg9h2Iger9pALdAEXdwBYAngQAaXf0PgIDUQgosIAAvLbgn2e53maZ5CEsZRmk7YI8jrVUwhAAApfgxhAQAeDcAe92BcAV93KJKLimxAXAEzGPQVFEVniBU9ChUyCwWssbKvBVyaIAVUxjBMYtPkDTcCGyyGf0he4ak9LhLyEZxsRh0HwdCwBIckAeD-1R8NlJFkGqu0+AANa3oYcF3qrduHDGFZwgA"
 
   useEffect(() => {
-    const hash = window.location.hash.slice(1);
+    console.log(hash)
     if (hash) {
       const decodedContent = decodeContent(hash);
       if (decodedContent) {
@@ -106,20 +108,27 @@ const App = () => {
     } else {
       setMode('code');
     }
-  }, []);
+  }, [hash]);
+
+  const generateLink = () => {
+    const encodedContent = encodeContent(content);
+    return `${window.location.origin}/#${encodedContent}`;
+  }
 
   const handleLinkButton = () => {
-    const encodedContent = encodeContent(content);
-    const url = `${window.location.origin}/#${encodedContent}`;
-    window.location.hash = `#${encodedContent}`;
-    navigator.clipboard.writeText(url);
+    navigator.clipboard.writeText(generateLink());
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 600);
   }
 
   const handleInfoButton = () => {
-    const example = "MQAgsgpg9g7ii8G4Lj2BQzigOoAsCGAXEASwGdxoYB+VAWhACo7JYGjScQYIAjEHABz4gAJhGKEA5gDsIQkHiggAjgFdCAYwDWAGwCeIYrgBOEEADMohgLb48MuRAAeeAHTJaAUUm3DIa4Y1CsJL2TkTBeFgmAAYAwgDyACLuUb5QIgA0cpHBalrqGlnRAGoAku4YKVzKePLhCkIkfFo4ehEm5lY2drZOrrQAmlDKIGo4wTKEBGOyHdYEPQQQAG4QwYThkSBRpeUplmkQriAgtDGRmrxLOITNXFomE-I+BhZ4atWkANqRxgC6ABRYGp8YgALgA9OC8IQ+Hh+M4REtwYE1MRwY8LOC1BYINRsZI1BBYWiNBAdFwoDhDEJqC9DG8PsA+MYRKZ1jJqKTyZTqbSsK93nhiABKTIRIbiLAgSRQKZaLRmCxzaGScQgKCwwhQSRsYz6ZQCV4yPogGJ5C5tLYAGRKADkANKVaq1OQKcSrCCGfAmdh5SQFfFw9brNXLT06CIhkA6IYAchWHEMk1skhNAGVVrJLe7pF7bLI-QV5Oq2oZSMQFG09KNgktCBA4DHlD5maJVnDodqOJN+dUQMZdFGu+xiJ6VoZXGhQEw4PBABA7mRnCAXIAAisocBdAHwbgDDd1AMGcsGA4UjrYh8QgskBcVqbTg8fiCT4MdebjQMAFAvAgiHgrgQOFnBUN9nD4HB3VFEZjG9WQbxAT4AHEoDSEBPAlKUrStGJP2BMFIXEZCRBlZRJWcZQRWcEBsBuEwXw3TRY2IFhH0MSk1ClKBTH0Iwo0DdsQDrX11g0cswP8bpNkIER2H-LB1lkA9yAYMVNjUJNoVGBUGlMUxPVWQlWCyfB6EYJS6BAcjRF4Kj+jTEoMH6BCQH+OhsGMwZhgzEwSlINyCA8kAEIAuhhRADFDEyHB5VgKMOlSPV1jwVRoRWTJoK0ahoUsB4GhVcRJwACVgMMIpMw9zNwcsoGykA8ksSZ8C1HURmqsTugUOi3wYQAUAkmYQoFESRYwIYgDT4V4zAgfBmysvJSSIax3WERpmh0TJrA0KM+vYfY9WIPBoMsP0ZDFRw8Gocx3lHLNkK0Sd0Co-koKm-MyFgKhkEU5hzOPUg1Jeuw4M+HQcEsGVDBw788PBEGwYsZxssg9h2Iger9pALdAEXdwBYAngQAaXf0PgIDUQgosIAAvLbgn2e53maZ5CEsZRmk7YI8jrVUwhAAApfgxhAQAeDcAe92BcAV93KJKLimxAXAEzGPQVFEVniBU9ChUyCwWssbKvBVyaIAVUxjBMYtPkDTcCGyyGf0he4ak9LhLyEZxsRh0HwdCwBIckAeD-1R8NlJFkGqu0+AANa3oYcF3qrduHDGFZwgA"
-    setContent(decodeContent(example))
+    setContent(decodeContent(sample))
+  }
+
+  const copyMarkdown = () => {
+    navigator.clipboard.writeText(content);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 600);
   }
 
   return (
@@ -150,7 +159,26 @@ const App = () => {
         </button>
       </div>
       {mode === 'view' ? (
-        <Editor content={content} setContent={setContent} />
+        <div className="article">
+          <section className="content">
+            <Editor content={content} setContent={setContent} />
+          </section>
+          <section className="share-block">
+            <a href={`https://twitter.com/intent/tweet?url=${generateLink()}`} rel="noreferrer " target="_blank">
+              <Tippy content="share">
+                <svg><use href="/icons.svg#twitter"/></svg>
+              </Tippy>
+            </a>
+            <Tippy content='copy code'>
+              <button onClick={copyMarkdown}>
+                {isCopied ? <ClipboardCopy /> : <Clipboard /> }
+              </button>
+            </Tippy>
+          </section>
+          <section id="copyright">
+            Powerd by <a href="https://meow.yamnor.me/" target="_blank" rel="noreferrer">Meow</a>
+          </section>
+        </div>
       ) : (
         <TextArea content={content} setContent={setContent} />
       )}

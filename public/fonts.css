@@ -1,0 +1,27 @@
+/* Noto Sans Fonts is under the Open Font License. See https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL */
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/NotoSansJP-Regular.woff2") format("woff2"),
+       url("/fonts/NotoSansJP-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/NotoSansJP-Bold.woff2") format("woff2"),
+       url("/fonts/NotoSansJP-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Noto Sans Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/NotoSansMono-Regular.woff2") format("woff2"),
+       url("/fonts/NotoSansMono-Regular.woff") format("woff");
+}
