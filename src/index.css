@@ -1,6 +1,6 @@
 :root {
   --black: #263238;
-  --grey: #bdbdbd;
+  --grey: #a9a9a9;
   --lightgrey: #f5f5f5;
   --lightblue: #3E95BA;
   --pink: #ad1457;
@@ -96,6 +96,10 @@ textarea {
   float: left;
   height: 0;
   pointer-events: none;
+}
+
+p {
+  margin-block: 0.5rem;
 }
 
 h1 {
