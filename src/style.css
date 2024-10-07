@@ -59,8 +59,6 @@ em {
 
 strong {
   font-weight: bold;
-  /* color: var(--strong-color); */
-  /* padding: 0 0.25rem; */
 }
 
 /* ----- LINK ----- */
@@ -192,7 +190,7 @@ h3 {
   position: relative;
 }
 
-h3::before {
+/* h3::before {
   content: "";
   background-color: var(--h3-item-color);
   width: var(--h3-height);
@@ -201,7 +199,7 @@ h3::before {
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cline x1='4' x2='20' y1='9' y2='9'/%3E%3Cline x1='4' x2='20' y1='15' y2='15'/%3E%3Cline x1='10' x2='8' y1='3' y2='21'/%3E%3Cline x1='16' x2='14' y1='3' y2='21'/%3E%3C/svg%3E");
   left: -2rem;
   position: absolute;
-}
+} */
 
 h4 {
   font-size: var(--h4-font-size);
@@ -214,7 +212,7 @@ h4 {
   position: relative;
 }
 
-h4::before {
+/* h4::before {
   content: "";
   background-color: var(--h4-item-color);
   width: var(--h4-height);
@@ -224,7 +222,7 @@ h4::before {
   top: 0.125rem;
   left: -1.75rem;
   position: absolute;
-}
+} */
 
 .details-body h3::before,
 .details-body h4::before {
